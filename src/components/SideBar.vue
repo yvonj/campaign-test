@@ -9,7 +9,7 @@
         label="name"
         @input="changeWeek" 
         :options="weekList"
-        :value="$store.state.activeWeek" 
+        :value="activeWeekObject" 
         placeholder="Choose a week to test"></v-select>
         {{activeWeek.handle}}
   </div>
@@ -22,7 +22,7 @@ import {mapState, mapGetters, mapMutations} from 'vuex';
 export default {
     computed: {
         ...mapState ({
-            activeWeek: 'activeWeek'
+            activeWeekObject: 'activeWeek'
             }),
         ...mapGetters({
             countryList: 'getCountryList',
