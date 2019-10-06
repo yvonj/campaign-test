@@ -1,19 +1,41 @@
 <template>
   <div  class="sidebar_wrap">
       <ul>
-          <li v-for="(country,index) in this.getCountryList" v-bind:key="country.id" class="shadow">
-              <span>{{country.id}}</span>
+          <li v-for="(country,index) in this.countryList" v-bind:key="country.id" class="shadow">
+              <span v-on:click="changeCountry({country,index})">{{country.id}}</span>
           </li>
       </ul>
+      <v-select
+        label="name"
+        @input="changeWeek" 
+        :options="weekList"
+        :value="$store.state.activeWeek" 
+        placeholder="Choose a week to test"></v-select>
+        {{activeWeek.handle}}
   </div>
 </template>
 
 <script>
-import {mapGetters, mapMutations} from 'vuex'
+import {mapState, mapGetters, mapMutations} from 'vuex';
+
 
 export default {
     computed: {
-    ...mapGetters(['getCountryList'])
+        ...mapState ({
+            activeWeek: 'activeWeek'
+            }),
+        ...mapGetters({
+            countryList: 'getCountryList',
+            weekList: 'getWeekList',
+            activeWeek: 'getActiveWeek'
+            })
+
+    },
+    methods: {
+        ...mapMutations({
+            changeCountry: 'changeCountryFunc',
+            changeWeek: 'changeWeekFunc'
+        })
     }
 }
 </script>
