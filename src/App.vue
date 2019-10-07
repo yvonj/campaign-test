@@ -46,7 +46,7 @@ select,
 table,
 textarea {
   font-size: 14px;
-  font-family: HelveticaNeue, AppleSDGothicNeo-Regular, Dotum, '돋움', sans-serif;
+  font-family: ubuntu, HelveticaNeue, AppleSDGothicNeo-Regular, Dotum, '돋움', sans-serif;
 }
 
 button,
@@ -94,6 +94,9 @@ ul {
   overflow: hidden;
 }
 
+body{
+  height: 100%;
+}
 
 .shadow{
     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);

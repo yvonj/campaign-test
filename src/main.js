@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
+import vSelect from 'vue-select';
+import 'vue-select/dist/vue-select.css';
+Vue.component('v-select', vSelect);
 // import VueRouter from 'vue-router';
 import {router} from './router/index.js';
 import {store} from './store/store.js';

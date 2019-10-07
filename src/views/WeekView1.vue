@@ -1,6 +1,5 @@
 <template>
   <div>
-      Week1
       <MainSite></MainSite>
   </div>
 </template>
