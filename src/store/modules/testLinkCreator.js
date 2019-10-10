@@ -7,32 +7,32 @@ const state = {
         {
             id: "US",
             handle: "ENU",
-            img: "./assets/img/us_flag.png"
+            img: "us_flag.png"
         },
         {
             id: "UK",
             handle: "ENG",
-            img: "./assets/img/uk_flag.png"
+            img: "uk_flag.png"
         },
         {
             id: "France",
             handle: "FRA",
-            img: "./assets/img/fr_flag.png"
+            img: "fr_flag.png"
         },
         {
             id: "Germany",
             handle: "DEU",
-            img: "./assets/img/de_flag.png"
+            img: "de_flag.png"
         },
         {
             id: "Spain",
             handle: "ESU",
-            img: "./assets/img/es_flag.png"
+            img: "es_flag.png"
         },
         {
             id: "Japan",
             handle: "JPN",
-            img: "./assets/img/jp_flag.png"
+            img: "jp_flag.png"
         }
 
     ],
