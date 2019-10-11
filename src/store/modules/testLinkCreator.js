@@ -7,7 +7,7 @@ const state = {
         {
             id: "US",
             handle: "ENU",
-            img: "us_flag.png"
+            img: "us_flag"
         },
         {
             id: "UK",

@@ -5,7 +5,9 @@
     <div class="main_wrap">
       <div>
         <span>
-          <img v-bind:src="'@/assets/img/' + selectedCountry.img" /> 
+          <img v-bind:src="'../assets/img/' + selectedCountry.img" alt="Riley" /> 
+          <img :src="'../assets/img/' + selectedCountry.img">
+          <img src="../assets/img/us_flag.png" alt="Riley" /> 
           <!-- ~some-npm-package/foo.png -->
         </span>
       </div>
