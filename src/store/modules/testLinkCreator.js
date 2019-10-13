@@ -7,7 +7,7 @@ const state = {
         {
             id: "US",
             handle: "ENU",
-            img: "us_flag"
+            img: "us_flag.png"
         },
         {
             id: "UK",
@@ -77,7 +77,8 @@ const state = {
         name: "",
         addr: "",
         handle: ""
-    }
+    },
+    menuStatus: true
 };
 
 const getters = {
@@ -90,6 +91,9 @@ const getters = {
     getSelectedCountry(state) {
         return state.selectedCountry;
     },
+    getSelectedCountryImg(state) {
+        return state.selectedCountry.img;
+    },
     getActiveWeek(state) {
         return state.activeWeek;
     },
@@ -99,6 +103,9 @@ const getters = {
     defaultWeekSet(state) {
         state.selectedWeek = state.weekList[0];
     },
+    getMenuStatus(state){
+        return state.menuStatus;
+    }
 };
 
 const mutations = {
@@ -112,6 +119,9 @@ const mutations = {
         });
         // router.push('/week1');
         // state.selectedWeek = payload.week;
+    },
+    changeMenuStatus(state){
+        state.menuStatus = !state.menuStatus;
     }
 };
 
