@@ -1,13 +1,5 @@
 <template>
   <div>
-    <div class="country_list_wrap">
-        <p class="country_list_header">Select Country</p>
-        <ul class="country_list">
-            <li v-for="(country,index) in this.countryList" v-bind:key="country.id" class="list_item">
-                <p v-on:click="changeCountry({country,index})" class="list_item_text">{{country.id}}</p>
-            </li>
-        </ul>
-    </div>
     <div class="week_select_wrap">
         <p class="week_select_header">Select Week</p>
          <v-select
@@ -16,6 +8,14 @@
         :options="weekList"
         :value="activeWeekObject" 
         placeholder="Choose a week to test"></v-select>
+    </div>
+    <div class="country_list_wrap">
+        <p class="country_list_header">Select Country</p>
+        <ul class="country_list">
+            <li v-for="(country,index) in this.countryList" v-bind:key="country.id" class="list_item">
+                <p v-on:click="changeCountry({country,index})" class="list_item_text">{{country.id}}</p>
+            </li>
+        </ul>
     </div>
      
         <!-- {{activeWeek.handle}} -->
@@ -48,10 +48,6 @@ export default {
 </script>
 
 <style scoped>
-    .country_list_wrap{
-        /* border: 1px solid #2d9bff; */
-        /* border-radius: 15px; */
-    }
     .country_list{
         padding: 5px;
     }
@@ -82,7 +78,9 @@ export default {
         height: 100%;
         font-size:1.1rem;
     }
-    
+    .week_select_wrap{
+        margin-bottom: 35px;
+    }
   .style-chooser .vs__search::placeholder,
   .style-chooser .vs__dropdown-toggle,
   .style-chooser .vs__dropdown-menu {

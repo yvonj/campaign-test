@@ -1,14 +1,16 @@
 <template>
   <div>
     <div class="header_box">
-      <i class="fas fa-bars menu_but" @click="changeMenuStatus"></i>
+      <i class="fas fa-bars menu_btn" @click="changeMenuStatus"></i>
       <p class="week_title">{{activeWeek.name}}</p>
+      <i class="fas fa-home back_btn" @click="backToMenu"></i>
+      <!-- <i class="fas fa-arrow-circle-left back_btn"></i> -->
     </div>
   </div>
 </template>
 
 <script>
-import {mapState, mapGetters, mapMutations} from 'vuex';
+import {mapGetters, mapMutations} from 'vuex';
 
 export default {
     computed: {
@@ -21,28 +23,51 @@ export default {
     },
     methods: {
       ...mapMutations({
-        changeMenuStatus: 'changeMenuStatus'
+        changeMenuStatus: 'changeMenuStatus',
+        backToMenu: 'backToMenu'
       })
     },
 }
 </script>
 
 <style scoped>
+  
   .week_title{
     line-height: 50px;
     text-align: center;
     font-size: 1.5rem;
     letter-spacing: 2px;
+    color: #0d3593;
   }
-  .menu_but{
-    float: left;
+  .menu_btn{
+    position: absolute;
     font-size: 35px;
     padding: 0 10px;
     line-height: 50px;
     color: rgb(117, 117, 117);
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s, opacity 0.5s linear;
+  }
+  .back_btn{
+    position: absolute;
+    font-size: 30px;
+    padding: 0 10px;
+    line-height: 50px;
+    color: rgb(117, 117, 117);
+    top: 0;
+    right: 5px;
   }
   .header_box::after {
     content: "";
     clear: both;
+  }
+  @media only screen and (max-width: 700px) {
+    .menu_btn{
+      opacity: 1;
+      visibility: visible;
+    }
   }
 </style>

@@ -111,6 +111,7 @@ const getters = {
 const mutations = {
     changeCountryFunc(state, payload) {
         state.selectedCountry = payload.country;
+        state.menuStatus = !state.menuStatus;
     },
     changeWeekFunc(state, payload) {
         state.activeWeek = payload;
@@ -122,6 +123,11 @@ const mutations = {
     },
     changeMenuStatus(state){
         state.menuStatus = !state.menuStatus;
+    },
+    backToMenu(){
+        router.push({
+            path: '/'
+        });
     }
 };
 
