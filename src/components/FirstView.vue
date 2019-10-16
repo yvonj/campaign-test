@@ -65,7 +65,7 @@ export default {
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         border-radius: 10px;
-        background: #cde3dd;
+        background: #aedbf0;
         opacity: 0.7;
         /* background: url("../assets/img/woodPatern.png"); */
     }
@@ -83,7 +83,7 @@ export default {
         padding: 20px;
     }
     .v-select{
-        background-color: #eefffb;
+        background-color: #fafdff;
     }
     .vs__search{
         line-height: 2;

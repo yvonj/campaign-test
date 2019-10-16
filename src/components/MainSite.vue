@@ -21,17 +21,22 @@
           <p class="section_list_heading">From Start</p>
           <div class="link_wrap">
             <a class="link_addr" target="_blank"
-              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=5&lang='+selectedCountry.handle">
-              From Begging
+              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=5&lang='+selectedCountry.handle"
+              @mouseover=activeWeek.handle+selectedCountry.handle>
+              Beginning
             </a>
           </div>
         </li>
         <li class="section_list shadow">
-           <p class="section_list_heading">AQ Part</p>
+           <p class="section_list_heading">AQ/BQ Part</p>
           <div class="link_wrap">
             <a class="link_addr" target="_blank"
               :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=44&lang='+selectedCountry.handle">
-              From AQ
+              AQ4
+            </a>
+            <a class="link_addr" target="_blank"
+              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=55&lang='+selectedCountry.handle">
+              BQ Part<br/>(AQ4, AQ10 included)
             </a>
           </div>
         </li>
@@ -58,6 +63,7 @@
           </div>
         </li>
       </ul>
+
       <!-- <span style="color:blue;">{{selectedCountry.handle}}</span>
         <span style="color:red;">{{activeWeek.name}}</span>
         <span style="color:red;">{{activeWeek.handle}}</span> -->
@@ -83,7 +89,7 @@
   export default {
     data() {
       return {
-        // imgAddr: selectedCountry.img
+        
         usImg,
         ukImg,
         frImg,
@@ -224,7 +230,7 @@
   .link_addr {
     display: inline-block;
     width: 100%;
-    padding: 10px;
+    padding: 20px 10px;
     box-sizing: border-box;
     font-size: 1rem;
     margin: 10px 5px;
