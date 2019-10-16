@@ -8,9 +8,11 @@
     <div class="main_wrap" :class="{main_wrap_full:!menuVal}">
       <div class="country_heading_wrap">
         <div class="country_heading_box">
-          <!-- <img :src="require('../assets/img' + selectedCountryImg)" :alt="selectedCountry.id" class="country_Img" /> -->
+          <!-- <img :src="'https://www.tnssurvey.com/cai/243412976/testImg/' + selectedCountry.img" :alt="selectedCountry.id" class="country_Img" /> -->
+          <!-- <img :src=computedProp(selectedCountry.img) :alt="selectedCountry.id" class="country_Img" /> -->
           <!-- <img :src="require('@/assets/img/'+ selectedCountry.img)" :alt="selectedCountry.id" class="country_Img" /> -->
           <!-- <img :src=require(`@/assets/img/${selectedCountryImg}`) :alt="selectedCountry.id" class="country_Img" /> -->
+          <img :src="gettingImg(selectedCountry.id)" :alt="selectedCountry.id" class="country_Img" />
           <span class="country_Txt">{{selectedCountry.id}}</span>
         </div>
       </div>
@@ -19,7 +21,7 @@
           <p class="section_list_heading">From Start</p>
           <div class="link_wrap">
             <a class="link_addr" target="_blank"
-              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=5&lang'+selectedCountry.handle">
+              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=5&lang='+selectedCountry.handle">
               From Begging
             </a>
           </div>
@@ -28,7 +30,7 @@
            <p class="section_list_heading">AQ Part</p>
           <div class="link_wrap">
             <a class="link_addr" target="_blank"
-              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=44&lang'+selectedCountry.handle">
+              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=44&lang='+selectedCountry.handle">
               From AQ
             </a>
           </div>
@@ -37,11 +39,11 @@
            <p class="section_list_heading">DQ/EQ Part</p>
           <div class="link_wrap">
             <a class="link_addr" target="_blank"
-              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=22&lang'+selectedCountry.handle">
+              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=22&lang='+selectedCountry.handle">
               From DQ
             </a>
             <a class="link_addr" target="_blank"
-              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=33&lang'+selectedCountry.handle">
+              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=33&lang='+selectedCountry.handle">
               From EQ
             </a>
           </div>
@@ -50,7 +52,7 @@
            <p class="section_list_heading">CrossMedia Part</p>
           <div class="link_wrap">
             <a class="link_addr" target="_blank"
-              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=33&lang'+selectedCountry.handle">
+              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=33&lang='+selectedCountry.handle">
               sdwd
             </a>
           </div>
@@ -66,6 +68,12 @@
 <script>
   import Header from './Header'
   import SideBar from './SideBar'
+  import usImg from '@/assets/img/us_flag.png';
+  import ukImg from '@/assets/img/uk_flag.png';
+  import frImg from '@/assets/img/fr_flag.png';
+  import deImg from '@/assets/img/de_flag.png';
+  import esImg from '@/assets/img/es_flag.png';
+  import jpImg from '@/assets/img/jp_flag.png';
   import {
     // mapState,
     mapGetters,
@@ -73,11 +81,17 @@
   } from 'vuex'
 
   export default {
-    // data() {
-    //   return {
-    //     imgAddr: selectedCountry.img
-    //   }
-    // },
+    data() {
+      return {
+        // imgAddr: selectedCountry.img
+        usImg,
+        ukImg,
+        frImg,
+        deImg,
+        esImg,
+        jpImg
+      }
+    },
     computed: {
       ...mapGetters(['defaultCountrySet'], ['defaultWeekSet']),
       ...mapGetters({
@@ -88,12 +102,26 @@
         selectedCountryImg: 'getSelectedCountryImg',
         menuVal: 'getMenuStatus'
       })
-
     },
     methods: {
       ...mapMutations({
         changeCountry: 'changeCountryFunc',
-      })
+      }),
+      gettingImg: function (country) {
+        if (country === 'US') {
+          return this.usImg
+        } else if (country === 'UK') {
+          return this.ukImg
+        } else if (country === 'France') {
+          return this.frImg
+        } else if (country === 'Germany') {
+          return this.deImg
+        } else if (country === 'Spain') {
+          return this.esImg
+        } else if (country === 'Japan') {
+          return this.jpImg
+        }
+      }
     },
     components: {
       SideBar,
