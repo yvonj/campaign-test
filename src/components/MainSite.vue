@@ -8,7 +8,9 @@
     <div class="main_wrap" :class="{main_wrap_full:!menuVal}">
       <div class="country_heading_wrap">
         <div class="country_heading_box">
-          <img :src="require('@/assets/img/'+ selectedCountry.img)" :alt="selectedCountry.id" class="country_Img" />
+          <img :src="require('../assets/img' + selectedCountryImg)" :alt="selectedCountry.id" class="country_Img" />
+          <!-- <img :src="require('@/assets/img/'+ selectedCountry.img)" :alt="selectedCountry.id" class="country_Img" /> -->
+          <!-- <img :src=require(`@/assets/img/${selectedCountryImg}`) :alt="selectedCountry.id" class="country_Img" /> -->
           <span class="country_Txt">{{selectedCountry.id}}</span>
         </div>
       </div>
@@ -71,11 +73,11 @@
   } from 'vuex'
 
   export default {
-    data() {
-      return {
-        imgAddr: this.selectedCountry.img
-      }
-    },
+    // data() {
+    //   return {
+    //     imgAddr: selectedCountry.img
+    //   }
+    // },
     computed: {
       ...mapGetters(['defaultCountrySet'], ['defaultWeekSet']),
       ...mapGetters({
