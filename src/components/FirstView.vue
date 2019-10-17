@@ -12,6 +12,7 @@
                 @input="changeWeek" 
                 :options="weekList"
                 :value="activeWeekObject" 
+                class="select_box"
                 placeholder="Choose a week to test"></v-select>
           </div>
     </div>
@@ -72,10 +73,10 @@ export default {
     .header_text{
         margin-bottom: 40px;
         font-size: 1.5rem;
-        color: #00028e;
+        color: #000148;
     }
     .header_wrap {
-        padding: 20px 30px;
+        padding: 30px;
     }
     .week_select_header {
         font-size: 1.3rem;
@@ -86,12 +87,28 @@ export default {
     .v-select{
         background-color: #fafdff;
     }
-    .vs__search{
+    .select_box input{
         line-height: 2;
     }
     .vs__search::placeholder{
         color: #000;
     }
+    
+  /* .select_box .vs__search::placeholder,
+  .select_box .vs__dropdown-toggle,
+  .select_box .vs__dropdown-menu {
+    background: #dfe5fb;
+    border: none;
+    color: #394066;
+    text-transform: lowercase;
+    font-variant: small-caps;
+  }
+
+  .select_box .vs__clear,
+  .select_box .vs__open-indicator {
+    fill: #394066;
+  } */
+
     @media only screen and (max-width: 700px) {
         .week_select_box{
             width: 320px;
