@@ -51,7 +51,18 @@
           </div>
         </li>
       </ul>
-
+      <div class="debug_wrap">
+        <div v-for="btn in ftpBtnList" :key="btn.id">
+          <button v-clipboard="btn.value + activeWeek.handle">{{btn.name}}</button>
+        </div>
+        <div v-for="btn in debugBtnList" :key="btn.id">
+          <button v-clipboard="btn.value + activeWeek.handle">{{btn.name}}</button>
+        </div>
+        <div v-for="btn in extratorBtnList" :key="btn.id">
+          <a target="_blank" :href="btn.value + activeWeek.handle">{{btn.name}}</a>
+          <!-- <button v-clipboard="">{{btn.name}}</button> -->
+        </div>
+      </div>
       <!-- <span style="color:blue;">{{selectedCountry.handle}}</span>
         <span style="color:red;">{{activeWeek.name}}</span>
         <span style="color:red;">{{activeWeek.handle}}</span> -->
@@ -77,20 +88,6 @@
   export default {
     data() {
       return {
-        countryButtons: [
-          {
-            id:1,
-            value: 'B1',
-          },
-          {
-            id:2,
-            value: 'B2',
-          },      
-          {
-            id:3,
-            value: 'B3',
-          },      
-        ],
         usImg,
         ukImg,
         frImg,
@@ -111,7 +108,10 @@
         startList: 'getStartList',
         aQBQList: 'getAQBQList',
         dQEQList: 'getDQEQList',
-        crossMediaList: 'getCrossMediaList'
+        crossMediaList: 'getCrossMediaList',
+        ftpBtnList: 'getFTPBtnList',
+        debugBtnList: 'getDebugBtnList',
+        extratorBtnList: 'getExtratorList',
       })
     },
     methods: {
