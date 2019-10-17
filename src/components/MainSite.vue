@@ -8,10 +8,7 @@
     <div class="main_wrap" :class="{main_wrap_full:!menuVal}">
       <div class="country_heading_wrap">
         <div class="country_heading_box">
-          <!-- <img :src="'https://www.tnssurvey.com/cai/243412976/testImg/' + selectedCountry.img" :alt="selectedCountry.id" class="country_Img" /> -->
-          <!-- <img :src=computedProp(selectedCountry.img) :alt="selectedCountry.id" class="country_Img" /> -->
           <!-- <img :src="require('@/assets/img/'+ selectedCountry.img)" :alt="selectedCountry.id" class="country_Img" /> -->
-          <!-- <img :src=require(`@/assets/img/${selectedCountryImg}`) :alt="selectedCountry.id" class="country_Img" /> -->
           <img :src="gettingImg(selectedCountry.id)" :alt="selectedCountry.id" class="country_Img" />
           <span class="country_Txt">{{selectedCountry.id}}</span>
         </div>
@@ -20,45 +17,36 @@
         <li class="section_list shadow">
           <p class="section_list_heading">From Start</p>
           <div class="link_wrap">
-            <a class="link_addr" target="_blank"
-              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=5&lang='+selectedCountry.handle"
-              @mouseover=activeWeek.handle+selectedCountry.handle>
-              Beginning
+            <a class="link_addr" target="_blank" v-for="(item) in this.startList" v-bind:key="item.id"
+              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug='+item.id+'&lang='+selectedCountry.handle">
+              {{item.name}}
             </a>
           </div>
         </li>
         <li class="section_list shadow">
            <p class="section_list_heading">AQ/BQ Part</p>
           <div class="link_wrap">
-            <a class="link_addr" target="_blank"
-              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=44&lang='+selectedCountry.handle">
-              AQ4
-            </a>
-            <a class="link_addr" target="_blank"
-              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=55&lang='+selectedCountry.handle">
-              BQ Part<br/>(AQ4, AQ10 included)
+            <a class="link_addr" target="_blank" v-for="(item) in this.aQBQList" v-bind:key="item.id"
+              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug='+item.id+'&lang='+selectedCountry.handle">
+              {{item.name}}
             </a>
           </div>
         </li>
         <li class="section_list shadow">
            <p class="section_list_heading">DQ/EQ Part</p>
           <div class="link_wrap">
-            <a class="link_addr" target="_blank"
-              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=22&lang='+selectedCountry.handle">
-              From DQ
-            </a>
-            <a class="link_addr" target="_blank"
-              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=33&lang='+selectedCountry.handle">
-              From EQ
+            <a class="link_addr" target="_blank" v-for="(item) in this.dQEQList" v-bind:key="item.id"
+              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug='+item.id+'&lang='+selectedCountry.handle">
+              {{item.name}}
             </a>
           </div>
         </li>
         <li class="section_list shadow">
            <p class="section_list_heading">CrossMedia Part</p>
           <div class="link_wrap">
-            <a class="link_addr" target="_blank"
-              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug=33&lang='+selectedCountry.handle">
-              sdwd
+            <a class="link_addr" target="_blank" v-for="(item) in this.crossMediaList" v-bind:key="item.id"
+              :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug='+item.id+'&lang='+selectedCountry.handle">
+              {{item.name}}
             </a>
           </div>
         </li>
@@ -89,7 +77,20 @@
   export default {
     data() {
       return {
-        
+        countryButtons: [
+          {
+            id:1,
+            value: 'B1',
+          },
+          {
+            id:2,
+            value: 'B2',
+          },      
+          {
+            id:3,
+            value: 'B3',
+          },      
+        ],
         usImg,
         ukImg,
         frImg,
@@ -106,7 +107,11 @@
         selectedCountry: 'getSelectedCountry',
         activeWeek: 'getActiveWeek',
         selectedCountryImg: 'getSelectedCountryImg',
-        menuVal: 'getMenuStatus'
+        menuVal: 'getMenuStatus',
+        startList: 'getStartList',
+        aQBQList: 'getAQBQList',
+        dQEQList: 'getDQEQList',
+        crossMediaList: 'getCrossMediaList'
       })
     },
     methods: {
@@ -141,13 +146,16 @@
     min-height: 50px;
     width: 100%;
     border-bottom: 1px solid #cbced0;
+    position: fixed;
+    z-index: 99;
+    background-color: #fff;
   }
 
   .sidebar_wrap {
     width: 250px;
     padding: 5px;
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
     top: 50px;
     bottom: 0;
     left: 0;
@@ -155,8 +163,6 @@
     opacity: 1;
     transition: visibility 1s, opacity 0.5s linear;
   }
-
-  
 
   .main_wrap {
     position: absolute;
@@ -255,7 +261,6 @@
   @media only screen and (max-width: 700px) {
     .sidebar_wrap{
       width: 70%;
-      position: fixed;
       background-color: #fff;
       z-index: 99;
     }

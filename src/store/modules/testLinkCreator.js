@@ -38,16 +38,6 @@ const state = {
     ],
     weekList : [
         {
-            name: "Week33",
-            addr: "Week1",
-            handle: "ADMSMPW27V3"
-        },
-        {
-            name: "Week34",
-            addr: "Week2",
-            handle: "ADMSMPW25V3"
-        },
-        {
             name: "Week35",
             addr: "Week1",
             handle: "ADMSMPW27V3"
@@ -56,6 +46,80 @@ const state = {
             name: "Week36",
             addr: "Week2",
             handle: "ADMSMPW25V3"
+        },
+        {
+            name: "Week37",
+            addr: "Week1",
+            handle: "ADMSMPW27V3"
+        },
+        {
+            name: "Week38",
+            addr: "Week2",
+            handle: "ADMSMPW25V3"
+        },
+    ],
+    startList: [
+        {
+            id: "5",
+            name: "Beginning"
+        }
+    ],
+    aQBQList: [
+        {
+            id: "44",
+            name: "AQ Part"
+        },
+        {
+            id: "55",
+            name: "BQ Part"
+        },
+    ],
+    dQEQList: [
+        {
+            id: "22",
+            name: "DQ Part"
+        },
+        {
+            id: "33",
+            name: "EQ Part"
+        },
+    ],
+    crossMediaList: [
+        {
+            id: "71",
+            name: "Television"
+        },
+        {
+            id: "72",
+            name: "Radio"
+        },
+        {
+            id: "73",
+            name: "Megazine"
+        },
+        {
+            id: "74",
+            name: "News"
+        },
+        {
+            id: "75",
+            name: "Cinema"
+        },
+        {
+            id: "76",
+            name: "Outdoor"
+        },
+        {
+            id: "77",
+            name: "Online Mobile"
+        },
+        {
+            id: "78",
+            name: "Airport"
+        },
+        {
+            id: "79",
+            name: "Point Of Purchase"
         }
     ],
     // selectedCountry: {
@@ -105,6 +169,18 @@ const getters = {
     },
     getMenuStatus(state){
         return state.menuStatus;
+    },
+    getStartList(state){
+        return state.startList;
+    },
+    getAQBQList(state){
+        return state.aQBQList;
+    },
+    getDQEQList(state){
+        return state.dQEQList;
+    },
+    getCrossMediaList(state){
+        return state.crossMediaList;
     }
 };
 

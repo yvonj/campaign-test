@@ -70,11 +70,12 @@ export default {
         /* background: url("../assets/img/woodPatern.png"); */
     }
     .header_text{
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         font-size: 1.5rem;
+        color: #00028e;
     }
     .header_wrap {
-        padding: 30px;
+        padding: 20px 30px;
     }
     .week_select_header {
         font-size: 1.3rem;
