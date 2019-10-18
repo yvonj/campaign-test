@@ -58,20 +58,24 @@ const state = {
             handle: "ADMSMPW25V3"
         },
     ],
-    startList: [
+    startAQList: [
         {
             id: "5",
             name: "Beginning"
-        }
-    ],
-    aQBQList: [
+        },
         {
             id: "44",
             name: "AQ Part"
         },
+    ],
+    bQCQList: [
         {
             id: "55",
             name: "BQ Part"
+        },
+        {
+            id: "66",
+            name: "CQ Part"
         },
     ],
     dQEQList: [
@@ -201,11 +205,11 @@ const getters = {
     getMenuStatus(state){
         return state.menuStatus;
     },
-    getStartList(state){
-        return state.startList;
+    getstartAQList(state){
+        return state.startAQList;
     },
-    getAQBQList(state){
-        return state.aQBQList;
+    getbQCQList(state){
+        return state.bQCQList;
     },
     getDQEQList(state){
         return state.dQEQList;

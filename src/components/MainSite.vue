@@ -15,18 +15,18 @@
       </div>
       <ul class="section_list_wrap">
         <li class="section_list shadow">
-          <p class="section_list_heading">From Start</p>
+          <p class="section_list_heading">Beginning/AQ</p>
           <div class="link_wrap">
-            <a class="link_addr" target="_blank" v-for="(item) in this.startList" v-bind:key="item.id"
+            <a class="link_addr" target="_blank" v-for="(item) in this.startAQList" v-bind:key="item.id"
               :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug='+item.id+'&lang='+selectedCountry.handle">
               {{item.name}}
             </a>
           </div>
         </li>
         <li class="section_list shadow">
-           <p class="section_list_heading">AQ/BQ Part</p>
+           <p class="section_list_heading">BQ/CQ Part</p>
           <div class="link_wrap">
-            <a class="link_addr" target="_blank" v-for="(item) in this.aQBQList" v-bind:key="item.id"
+            <a class="link_addr" target="_blank" v-for="(item) in this.bQCQList" v-bind:key="item.id"
               :href="'https://t2-test.ktrmr.com/surveyw.aspx?i.project='+activeWeek.handle+'&s=GEN24&id=1&chk=na&pid=auto&i.test=1&debug='+item.id+'&lang='+selectedCountry.handle">
               {{item.name}}
             </a>
@@ -51,7 +51,8 @@
           </div>
         </li>
       </ul>
-      <div class="debug_wrap">
+      <!-- <div class="debug_wrap"> -->
+      <div class="debug_wrap" style="display:none;">
         <div v-for="btn in ftpBtnList" :key="btn.id">
           <button v-clipboard="btn.value + activeWeek.handle">{{btn.name}}</button>
         </div>
@@ -105,8 +106,8 @@
         activeWeek: 'getActiveWeek',
         selectedCountryImg: 'getSelectedCountryImg',
         menuVal: 'getMenuStatus',
-        startList: 'getStartList',
-        aQBQList: 'getAQBQList',
+        startAQList: 'getstartAQList',
+        bQCQList: 'getbQCQList',
         dQEQList: 'getDQEQList',
         crossMediaList: 'getCrossMediaList',
         ftpBtnList: 'getFTPBtnList',
@@ -178,7 +179,7 @@
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
-    height: 100%;
+    height: calc(100% - 50px);
   }
 
   .section_list_wrap::after {

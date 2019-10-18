@@ -13,6 +13,7 @@ export default {
 
 <style>
 /* base css */
+html,
 body,
 button,
 fieldset,
@@ -94,7 +95,7 @@ ul {
   overflow: hidden;
 }
 
-body{
+html,body{
   height: 100%;
 }
 
