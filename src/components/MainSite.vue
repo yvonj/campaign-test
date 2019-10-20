@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <Header class="header_wrap"></Header>
-    <!-- <transition name="list"> 
+    <!-- <transition name="list">
       <SideBar class="sidebar_wrap shadow" v-show="menuVal"></SideBar>
     </transition> -->
     <SideBar class="sidebar_wrap shadow" :class="{sidebar_wrap_hd:!menuVal}"></SideBar>
@@ -52,18 +52,20 @@
         </li>
       </ul>
       <!-- <div class="debug_wrap"> -->
-      <div class="debug_wrap" style="display:none;">
-        <div v-for="btn in ftpBtnList" :key="btn.id">
-          <button v-clipboard="btn.value + activeWeek.handle">{{btn.name}}</button>
+      <transition name="list">
+        <div class="debug_wrap" v-show="storageStatus">
+          <div v-for="btn in ftpBtnList" :key="btn.id" class="debug_box">
+            <p v-clipboard="btn.value + activeWeek.handle">{{btn.name}}</p>
+          </div>
+          <div v-for="btn in debugBtnList" :key="btn.id" class="debug_box">
+            <p v-clipboard="btn.value + activeWeek.handle">{{btn.name}}</p>
+          </div>
+          <div v-for="btn in extratorBtnList" :key="btn.id" class="debug_box">
+            <p target="_blank" :href="btn.value + activeWeek.handle">{{btn.name}}</p>
+            <!-- <button v-clipboard="">{{btn.name}}</button> -->
+          </div>
         </div>
-        <div v-for="btn in debugBtnList" :key="btn.id">
-          <button v-clipboard="btn.value + activeWeek.handle">{{btn.name}}</button>
-        </div>
-        <div v-for="btn in extratorBtnList" :key="btn.id">
-          <a target="_blank" :href="btn.value + activeWeek.handle">{{btn.name}}</a>
-          <!-- <button v-clipboard="">{{btn.name}}</button> -->
-        </div>
-      </div>
+      </transition>
       <!-- <span style="color:blue;">{{selectedCountry.handle}}</span>
         <span style="color:red;">{{activeWeek.name}}</span>
         <span style="color:red;">{{activeWeek.handle}}</span> -->
@@ -113,6 +115,7 @@
         ftpBtnList: 'getFTPBtnList',
         debugBtnList: 'getDebugBtnList',
         extratorBtnList: 'getExtratorList',
+        storageStatus: 'getStorageURLStatus',
       })
     },
     methods: {
@@ -133,7 +136,7 @@
         } else if (country === 'Japan') {
           return this.jpImg
         }
-      }
+      },
     },
     components: {
       SideBar,
@@ -237,16 +240,16 @@
   .link_addr {
     display: inline-block;
     width: 100%;
-    padding: 20px 10px;
+    padding: 10px;
     box-sizing: border-box;
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin: 10px 5px;
   }
 
   .link_addr:hover {
     color:#2c9afe;
     text-decoration: none;
-    border-bottom: 1px solid #2c9afe
+    border-bottom: 1px solid #2c9afe;
   }
 
   /* list item transition effect */
@@ -257,6 +260,31 @@
   .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
     opacity: 0;
     transform: translateX(-30px);
+  }
+  .debug_wrap {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 250px;
+    padding-bottom: 10px;
+    background-color: #fff;
+  }
+  .debug_box{
+    display: inline-block;
+    width: 50%;
+    height: 40px;
+  }
+  .debug_box>p{
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center
+  }
+  .debug_box>p:hover{
+    color:#027104;
+    border-bottom: 1px solid #027104;
   }
 
   @media only screen and (max-width: 700px) {
@@ -281,10 +309,11 @@
     .sidebar_wrap_hd{
       visibility: hidden;
       opacity: 0;
-      
-      
     }
     .main_wrap_full{
+      left: 0;
+    }
+    .debug_wrap{
       left: 0;
     }
   }

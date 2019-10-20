@@ -2,7 +2,7 @@
   <div>
     <div class="header_box">
       <i class="fas fa-bars menu_btn" @click="changeMenuStatus"></i>
-      <p class="week_title">{{activeWeek.name}}</p>
+      <p class="week_title">{{activeWeek.name}} <span>{{activeWeek.handle}}</span></p>
       <i class="fas fa-home back_btn" @click="backToMenu"></i>
       <!-- <i class="fas fa-arrow-circle-left back_btn"></i> -->
     </div>
@@ -38,6 +38,11 @@ export default {
     font-size: 1.5rem;
     letter-spacing: 2px;
     color: #0d3593;
+  }
+  .week_title>span{
+    font-size:0.9rem;
+    letter-spacing: 0;
+    color: #002377;
   }
   .menu_btn{
     position: absolute;

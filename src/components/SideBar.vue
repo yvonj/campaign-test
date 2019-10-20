@@ -17,6 +17,9 @@
             </li>
         </ul>
     </div>
+    <div class="storage_URL_wrap">
+        <p class="storage_URL_but" @click="changeStorageURLStatus">Show File URL</p>
+    </div>
      
         <!-- {{activeWeek.handle}} -->
   </div>
@@ -41,7 +44,8 @@ export default {
     methods: {
         ...mapMutations({
             changeCountry: 'changeCountryFunc',
-            changeWeek: 'changeWeekFunc'
+            changeWeek: 'changeWeekFunc',
+            changeStorageURLStatus: 'changeStorageURLStatus'
         })
     }
 }
@@ -80,6 +84,26 @@ export default {
     }
     .week_select_wrap{
         margin-bottom: 35px;
+    }
+    .storage_URL_wrap{
+        /* margin-top: 20px; */
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+    }
+    .storage_URL_but{
+        width: 100%;
+        cursor: pointer;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1rem;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .storage_URL_but:hover{
+        border: 2px solid #027104;
+        color: #027104;
     }
   .style-chooser .vs__search::placeholder,
   .style-chooser .vs__dropdown-toggle,

@@ -177,7 +177,8 @@ const state = {
         addr: "",
         handle: ""
     },
-    menuStatus: true
+    menuStatus: true,
+    storageURLStatus: false
 };
 
 const getters = {
@@ -226,6 +227,9 @@ const getters = {
     getExtratorList(state) {
         return state.extractorBtn;
     },
+    getStorageURLStatus(state){
+        return state.storageURLStatus;
+    }
 };
 
 const mutations = {
@@ -248,7 +252,10 @@ const mutations = {
         router.push({
             path: '/'
         });
-    }
+    },
+    changeStorageURLStatus(state) {
+        state.storageURLStatus = !state.storageURLStatus;
+    },
 };
 
 export default {
