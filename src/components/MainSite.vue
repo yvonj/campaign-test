@@ -61,7 +61,8 @@
             <p v-clipboard="btn.value + activeWeek.handle">{{btn.name}}</p>
           </div>
           <div v-for="btn in extratorBtnList" :key="btn.id" class="debug_box">
-            <p target="_blank" :href="btn.value + activeWeek.handle">{{btn.name}}</p>
+            <p v-clipboard="btn.value + activeWeek.handle">{{btn.name}}</p>
+            <!-- <a target="_blank" :href="btn.value + activeWeek.handle">{{btn.name}}</a> -->
             <!-- <button v-clipboard="">{{btn.name}}</button> -->
           </div>
         </div>
@@ -274,7 +275,7 @@
     width: 50%;
     height: 40px;
   }
-  .debug_box>p{
+  .debug_box>p, .debug_box>a{
     display: inline-block;
     width: 100%;
     height: 40px;
@@ -282,9 +283,10 @@
     line-height: 40px;
     text-align: center
   }
-  .debug_box>p:hover{
+  .debug_box>p:hover, .debug_box>a:hover{
     color:#027104;
     border-bottom: 1px solid #027104;
+    text-decoration: none;
   }
 
   @media only screen and (max-width: 700px) {
