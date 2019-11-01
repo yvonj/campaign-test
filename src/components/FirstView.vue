@@ -52,21 +52,23 @@ export default {
         background-color:#f9f9fa;
         content: '';
         /* opacity: 0.7; */
-        /* background: url("../assets/img/woodPatern.png"); */
+        background-image: url("../assets/img/snow_mt2.png");
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 100% 500px;
     }
     .week_select_box {
         position: fixed;
         top: 0;
-        right: 0;
         bottom: 0;
-        left: 0;
+        left: 100px;
         margin: auto;
-        width: 450px;
-        height: 580px;
+        width: 400px;
+        height: 550px;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         border-radius: 10px;
-        background: #aedbf0;
+        background: #eee;
         opacity: 0.7;
         /* background: url("../assets/img/woodPatern.png"); */
     }
@@ -112,6 +114,20 @@ export default {
     @media only screen and (max-width: 700px) {
         .week_select_box{
             width: 320px;
+            
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        .week_select_box{
+            left: 0;
+            right: 0;
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .week_select_wrap::before{
+           background-size: 1000px 500px;
         }
     }
 </style>
