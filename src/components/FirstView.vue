@@ -49,13 +49,13 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color:#f9f9fa;
+        background-color:#000;
         content: '';
         /* opacity: 0.7; */
-        background-image: url("../assets/img/snow_mt2.png");
+        background-image: url("../assets/img/black_earth.png");
         background-repeat: no-repeat;
-        background-position: bottom;
-        background-size: 100% 500px;
+        background-position: 600px center;
+        background-size: 1000px;
     }
     .week_select_box {
         position: fixed;
@@ -123,11 +123,16 @@ export default {
             left: 0;
             right: 0;
         }
+        .week_select_wrap::before{
+           background-position: center;
+           background-size: 400px;
+        }
     }
 
     @media only screen and (max-width: 1000px) {
         .week_select_wrap::before{
-           background-size: 1000px 500px;
+           background-position: center;
+           background-size: 600px;
         }
     }
 </style>
