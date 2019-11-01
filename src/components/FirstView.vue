@@ -54,7 +54,7 @@ export default {
         /* opacity: 0.7; */
         background-image: url("../assets/img/black_earth.png");
         background-repeat: no-repeat;
-        background-position: 600px center;
+        background-position: 750px center;
         background-size: 1000px;
     }
     .week_select_box {
@@ -69,7 +69,7 @@ export default {
         -moz-border-radius: 10px;
         border-radius: 10px;
         background: #eee;
-        opacity: 0.7;
+        opacity: 0.9;
         /* background: url("../assets/img/woodPatern.png"); */
     }
     .header_text{
@@ -132,7 +132,7 @@ export default {
     @media only screen and (max-width: 1000px) {
         .week_select_wrap::before{
            background-position: center;
-           background-size: 600px;
+           background-size: 800px;
         }
     }
 </style>
