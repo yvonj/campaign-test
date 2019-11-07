@@ -38,22 +38,27 @@ const state = {
     ],
     weekList : [
         {
-            name: "Week35",
-            addr: "Week1",
-            handle: "ADMSMPW27V3"
-        },
-        {
-            name: "Week36",
+            name: "Week38",
             addr: "Week2",
             handle: "ADMSMPW25V3"
         },
         {
-            name: "Week37",
+            name: "Week39",
             addr: "Week1",
             handle: "ADMSMPW27V3"
         },
         {
-            name: "Week38",
+            name: "Week40",
+            addr: "Week2",
+            handle: "ADMSMPW25V3"
+        },
+        {
+            name: "Week41",
+            addr: "Week1",
+            handle: "ADMSMPW27V3"
+        },
+        {
+            name: "Week42",
             addr: "Week2",
             handle: "ADMSMPW25V3"
         },
@@ -141,12 +146,12 @@ const state = {
     debugBtns: [
         {
             id: 1,
-            value: '\\\\konapmri033\\mrint\\src\\',
+            value: '\\\\WIN-CPEQHJJ1I36\\mrint\\src\\',
             name: 'Ouput Location',
         },
         {
             id: 2,
-            value: '\\\\konapmri033\\mrint\\AutoActivate.bat ',
+            value: '\\\\WIN-CPEQHJJ1I36\\mrint\\AutoActivate.bat ',
             name: 'Activation',
         }
     ],
