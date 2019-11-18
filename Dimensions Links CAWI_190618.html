@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Dimensions Links</title>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+	<script type="text/javascript">
+		function set_data() {
+			var result = null,
+				tmp = [];
+			var items = window.location.search.substr(1).split("&");
+			for (var i = 0; i < items.length; i++) {
+				tmp = items[i].split("=");
+
+				if (tmp[1] != "") {
+					result = decodeURIComponent(tmp[1]);
+					for (var j = 0; j < document.getElementsByClassName(tmp[0]).length; j++) {
+						document.getElementsByClassName(tmp[0])[j].innerHTML = result;
+					}
+					document.getElementById(tmp[0]).value = result;
+				}
+			}
+			if (items[0].split("=")[1] != "") {
+				set_svalue('sVALUE');
+				// set_svalue('clusterVal');
+				set_svalue('rs');
+				// document.getElementById('CAWI').style.display = "";
+				// document.getElementsByClassName('group_none').style.display = "";
+				$(".group_none").css("display","block");
+			}
+		}
+
+		function receive_get_data(param) {
+			var result = null,
+				tmp = [];
+			var items = window.location.search.substr(1).split("&");
+			for (var i = 0; i < items.length; i++) {
+				tmp = items[i].split("=");
+				if (tmp[0] === param) result = decodeURIComponent(tmp[1]);
+			}
+			if (result != null) {
+				// document.getElementById('group_none').style.display = "";
+				// document.getElementsByClassName('group_none').style.display = "";
+				$(".group_none").css("display","block");
+			}
+			return result;
+		}
+
+		function set_data_from_get(param) {
+			var code = receive_get_data(param);
+			if (code != null) {
+				document.getElementById(param).value = code;
+			}
+			for (var i = 0; i < document.getElementsByClassName(param).length; i++)
+				document.getElementsByClassName(param)[i].innerHTML = code;
+		}
+
+		function set_link_from_get(param) {
+			var url = param;
+			window.open(url, '_blank');
+		}
+
+		function set_svalue(param) {
+			for (var i = 0; i < document.getElementsByClassName(param).length; i++) {
+				document.getElementsByClassName(param)[i].innerHTML = document.getElementById(param).value;
+			}
+			document.getElementsByName(param)[0].value = document.getElementById(param).value;
+		}
+
+		function set_PT(argument) {
+
+		}
+
+		$(document).ready(function() {
+			// function copyToClipboard(target) {
+			// 	var t = document.createElement("textarea");
+			// 	document.body.appendChild(t);
+			// 	// t.value = document.getElementById(target).innerText;
+			// 	// t.value = $(target).text();
+			// 	t.value = document.getElementById(target).innerHTML;
+			// 	t.select();
+			// 	document.execCommand('copy');
+			// 	document.body.removeChild(t);
+			// }
+			function copyToClipboard(element) {
+				var $temp = $("<input>");
+				$("body").append($temp);
+				$temp.val($.trim($(element).text())).select();
+				document.execCommand("copy");
+				$temp.remove();
+			}
+			$('#OutputBut').click(function(e) {
+				copyToClipboard('#OutputAddr');
+			});
+			$('#ActivBut').click(function() {
+				copyToClipboard('#ActivAddr');
+			});
+			$('#AceBut').click(function() {
+				copyToClipboard('#AceAddr');
+			});
+			$('#ScriptBut').click(function() {
+				copyToClipboard('#ScriptAddr');
+			});
+			$('#PreviewBut').click(function() {
+				copyToClipboard('#PreviewAddr');
+			});
+			$('#LiveTestBut').click(function() {
+				copyToClipboard('#LiveTestAddr');
+			});
+			$('#LiveBut').click(function() {
+				copyToClipboard('#LiveAddr');
+			});
+			$('#ImageFTPBut').click(function() {
+				copyToClipboard('#ImageFTPAddr');
+			});
+			$('#VideoFTPBut').click(function() {
+				copyToClipboard('#VideoFTPAddr');
+			});
+			$('#DextapBut').click(function() {
+				copyToClipboard('#DextapAddr');
+			});
+
+			$('#clusterVal').change(function() {
+					$('#clusterVal option:selected').each(function() {
+						if ($(this).val() == 1) {
+							$('.preA').text('https://ts-preview.ktrmr.com/secv.aspx');
+							$('.LiveTestA').text('https://ts.ktrmr.com/secv.aspx');
+							$('.LiveA').text('http://ts.ktrmr.com/secv.aspx');
+							$('.ClusterType').text('Cluster V');
+							$('#PreviewURL').html('<a href="https://previewv.ktrmr.com" target="_blank">https://previewv.ktrmr.com</a>');
+							$('#LiveURL').html('<a href="https://livev.ktrmr.com" target="_blank">https://livev.ktrmr.com</a>');
+							$('#DextapURL').html('<a href="http://dextap-uk" target="_blank">http://dextap-uk</a>');
+							$('.DextapClusterType').text('\\\\kt.group.local\\ko_dimensions\\CFS2\\DataExports\\TNS\\UK\\');
+						} else if ($(this).val() == 2) {
+							$('.preA').text('https://t2-test.ktrmr.com/surveyw.aspx');
+							$('.LiveTestA').text('https://t2.ktrmr.com/surveyw.aspx');
+							$('.LiveA').text('https://t2.ktrmr.com/surveyw.aspx');
+							$('.ClusterType').text('Cluster W');
+							$('#PreviewURL').html('<a href="https://previeww.ktrmr.com" target="_blank">https://previeww.ktrmr.com</a>');
+							$('#LiveURL').html('<a href="https://livew.ktrmr.com" target="_blank">https://livew.ktrmr.com</a>');
+							$('#DextapURL').html('<a href="https://extractor-client-prod.azurewebsites.net/" target="_blank">https://extractor-client-prod.azurewebsites.net/</a>');
+							$('.DextapClusterType').text('\\\\kt.group.local\\ko_dimensions\\CFS2\\DPAT_Output_NA\\');
+						} else if ($(this).val() == 3) {
+							$('.preA').text('http://t2-test.ktrmr.com/secs.aspx');
+							$('.LiveTestA').text('http://t2.ktrmr.com/secs.aspx');
+							$('.LiveA').text('http://t2.ktrmr.com/secs.aspx');
+							$('.ClusterType').text('Cluster S');
+							$('#PreviewURL').html('<a href="https://previews.ktrmr.com" target="_blank">https://previews.ktrmr.com</a>');
+							$('#LiveURL').html('<a href="https://lives.ktrmr.com" target="_blank">https://lives.ktrmr.com</a>');
+							$('#DextapURL').html('<a href="http://dextap-us" target="_blank">http://dextap-us</a>');
+							$('.DextapClusterType').text('\\\\kt.group.local\\ko_dimensions\\CFS2\\DataExports\\TNS\\US\\');
+						}
+					});
+				})
+				.change();
+		});
+	</script>
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+
+
+		body,
+		button,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		input,
+		select,
+		table,
+		textarea {
+			font-family: "맑은 고딕", verdana, san-serif;
+		}
+
+		a {
+			color: #000;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: #009a8c;
+		}
+
+		.blind {
+			position: absolute;
+			overflow: hidden;
+			clip: rect(0 0 0 0);
+			margin: -1px;
+			width: 1px;
+			height: 1px;
+		}
+
+		h1 {
+			font-size: 25px;
+			/* font-family:"Segoe UI",Arial,sans-serif; */
+			font-weight: bold;
+			/* font-weight: 400; */
+			text-align: center;
+			color: #fff;
+			height: 40px;
+			line-height: 40px;
+			background-color: #009688;
+			margin: 0;
+		}
+
+		h2.group_heading {
+			margin: 0;
+			font-size: 20px;
+			font-weight: 600;
+		}
+
+		h3 {
+			font-size: 11pt;
+			font-family: Arial, Helvetica, sans-serif;
+			font-weight: bold;
+			color: #009688;
+		}
+
+		#main {
+			/* margin: 0 auto; */
+			/* width: 100%; */
+			/* border: 1px solid black; */
+		}
+
+		#table {
+			display: table;
+			margin: 0 auto;
+			/* width: 100% */
+		}
+
+		.row {
+			display: table-row;
+		}
+
+		.cell {
+			display: table-cell;
+			padding: 3px;
+			border-bottom: 1px solid #DDD;
+			width: 50%;
+		}
+
+		.cell1 {
+			/* width: 40%; */
+		}
+
+		.cell2 {
+			/* width: 60%; */
+		}
+
+		/* #myTable tr:not(:first-child) td:first-child {
+			text-align: right;
+		}
+
+		#myTable tr:not(:first-child) td:last-child {
+			text-align: left;
+		} */
+
+		input[type*="text"] {
+			width: 115px;
+			padding: 10px;
+			outline-color: #12736a;
+			/* margin-left: 5px; */
+			border: 1px solid #009688;
+		}
+
+		.item_wrap {
+			display: inline-block;
+			margin-right: 13px;
+			width: 265px;
+		}
+
+		.button_wrap {
+			float: right;
+			margin-right: 30px;
+		}
+
+		span.item_text {
+			font-size: 15px;
+			color: #009688;
+			width: 110px;
+			display: inline-block;
+			font-weight: 600;
+		}
+
+		.textFieldWrap {
+			margin-top: 20px;
+			padding: 0 10px;
+
+		}
+
+		.selectboxWrap {
+			margin: 15px 0;
+			padding: 0 10px;
+
+		}
+
+		.selectboxWrap::after {
+			display: block;
+			clear: both;
+			content: "";
+		}
+
+		.group_box {
+			border: 1px solid #009688;
+			padding: 10px;
+			/* margin: 0 10px; */
+		}
+
+		.group_box2 {
+			margin-left: 0;
+		}
+
+		.box {
+			display: inline-block;
+			position: relative;
+		}
+
+		.box select {
+			background-color: #12736a;
+			color: #fff;
+			padding: 10px;
+			width: 140px;
+			border: none;
+			font-size: 15px;
+			/* box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2); */
+			-webkit-appearance: button;
+			appearance: button;
+			outline: none;
+			/* margin-left: 5px; */
+		}
+
+		.box::before {
+			content: "";
+			font-family: FontAwesome;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 20%;
+			height: 100%;
+			text-align: center;
+			font-size: 28px;
+			line-height: 33px;
+			color: rgba(255, 255, 255, 0.9);
+			background-color: rgba(255, 255, 255, 0.17);
+			pointer-events: none;
+		}
+
+		.box:hover::before {
+			color: rgba(255, 255, 255, 0.6);
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+
+		.box select option {
+			padding: 30px;
+		}
+
+		.submit_but {
+			display: inline-block;
+			width: 135px;
+			height: 41px;
+			outline-color: #009688;
+			border: 1px solid #eee;
+			vertical-align: middle;
+			text-align: center;
+			background-color: #009688;
+			color: #fff;
+			font-size: 15px;
+		}
+
+		button.submit_but:hover {
+			background-color: #00968870;
+		}
+
+		.cell_box {
+			position: relative;
+			width: 100%
+		}
+
+		.link_box {
+			display: inline-block;
+			width: calc(100% - 140px);
+		}
+
+		.button_box {
+			position: absolute;
+			/* top: 0; */
+			bottom: 0;
+			right: 0;
+		}
+
+		.button_box button {
+			background-color: #009688;
+			border: none;
+			color: white;
+			padding: 13px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			width: 130px;
+
+		}
+
+		.button_box button:hover {
+			background-color: #00968899;
+		}
+
+		table.type03 {
+			border-collapse: collapse;
+			text-align: left;
+			/* width: calc(100% - 10px); */
+			line-height: 1.5;
+			border-top: 1px solid #ccc;
+			border-left: 3px solid #009688;
+			margin: 10px 10px 10px 0;
+		}
+
+		table.type03 th {
+			width: 147px;
+			padding: 8px;
+			font-weight: bold;
+			vertical-align: top;
+			color: #153d73;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+
+		}
+
+		table.type03 td {
+			width: 349px;
+			padding: 8px;
+			vertical-align: top;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+		}
+
+		.link_box span {
+			word-break: break-all;
+		}
+
+		span.ClusterType {
+    color: #cc0026;
+    font-size: 23px;
+		}
+
+		.group_none{
+				display: none;
+		}
+	</style>
+</head>
+
+<body onload="set_data()">
+	<a href="" onclick="location.reload();">
+		<h1>DIMENSION LINKS</h1>
+		<!-- <span align=center>Last updated: Feb 12, 2018</span> -->
+	</a>
+
+	<form action="#" method="GET">
+		<div class="textFieldWrap">
+
+			<div class="item_wrap">
+				<span class="item_text">SAS CODE</span>
+				<input type="text" name="SASCODE" id="SASCODE">
+			</div>
+
+			<div class="item_wrap">
+				<span class="item_text">Job Number</span>
+				<input type="text" name="JOBNUM" id="JOBNUM">
+			</div>
+
+			<div class="item_wrap">
+				<span class="item_text">Debug CODE</span>
+				<input type="text" name="DebugCode" id="DebugCode">
+			</div>
+
+			<div class="item_wrap">
+				<span class="item_text">Language</span>
+				<input type="text" name="LanguageCode" id="LanguageCode" value="">
+			</div>
+
+			<div class="item_wrap">
+				<span class="item_text">Custom Option</span>
+				<input type="text" placeholder="Be sure to use '&'" name="COP" id="COP">
+			</div>
+		</div>
+
+
+
+		<div class="selectboxWrap">
+			<div class="item_wrap">
+				<span class="item_text">Cluster Type</span>
+				<div class="box">
+					<!-- <select id="clusterVal" onchange="set_svalue(this.id)"> -->
+					<select id="clusterVal">
+						<option value="2">Cluster W</option>
+						<option value="3">Cluster S</option>
+						<option value="1">Cluster V</option>
+					</select>
+				</div>
+			</div>
+			<input type="hidden" name="clusterVal" id="aspxValue">
+			<div class="item_wrap">
+				<span class="item_text">Project Type</span>
+				<div class="box">
+					<select id="PT" onchange="set_PT();">
+						<option value="TNS">TNS</option>
+						<option value="MB">MB</option>
+					</select>
+				</div>
+			</div>
+
+
+			<div class="item_wrap">
+				<span class="item_text">src Value</span>
+				<div class="box">
+					<select id="sVALUE" onchange="set_svalue(this.id)">
+						<option value="GEN24">GEN24</option>
+						<option value="GEN25">GEN25</option>
+						<option value="GEN26">GEN26</option>
+						<option value="GEN27">GEN27</option>
+						<option value="GMI29">GMI29</option>
+					</select>
+				</div>
+			</div>
+			<input type="hidden" name="sVALUE" id="srcValue">
+
+
+
+			<div class="item_wrap">
+				<span class="item_text">RS</span>
+				<div class="box">
+					<select id="rs" onchange="set_svalue(this.id)">
+						<option value="1">1</option>
+						<option value="0">0</option>
+					</select>
+				</div>
+			</div>
+			<input type="hidden" name="rs" id="rsValue">
+			<div class="button_wrap">
+				<button title="Submit Button" class="submit_but" type="submit" name="button">Submit</button>
+			</div>
+		</div>
+	</form>
+	<div id="table">
+		<div class="row">
+
+			<div class="cell cell2">
+				<div id="main">
+					<div class="group_box group_none">
+						<h2 class="group_heading">Server Address <span class="ClusterType">Cluster V</span></h2>
+						<div class="cell_box">
+							<div class="link_box">
+								<h3>Scripting 서버:</h3>
+								<span id="ScriptAddr">
+									<a onclick="set_link_from_get(this.innerText)" href="#">
+										https://scripting601-nap1.grpitsrv.com/mrIWeb/mrIWeb.dll?i.project=<span class="SASCODE">XXXXX</span>&s=<span class="sVALUE">XXX00</span>&id=1&chk=na&pid=auto&i.test=1&debug=<span class="DebugCode">5</span><span
+											class="LanguageCode"></span>
+									</a>
+								</span>
+
+								<!-- <span id="ScriptAddr" class="blind">http://scripting601-nap1.grpitsrv.com/mrIWeb/mrIWeb.dll?i.project=<span class="SASCODE">XXXXX</span>&s=<span class="sVALUE">XXX00</span>&id=1&chk=na&pid=auto&i.test=1&debug=<span
+										class="DebugCode">5</span><span class="LanguageCode"></span></span> -->
+
+							</div>
+							<div class="button_box">
+								<button title="Script Server Address Copy Button" id="ScriptBut" type="button" name="button">Copy</button>
+							</div>
+						</div>
+						<!-- </span><span class="COP"></span></a> -->
+
+						<div class="cell_box">
+							<div class="link_box">
+								<h3>Preview 서버:</h3>
+								<span id="PreviewAddr">
+									<a onclick="set_link_from_get(this.innerText)" href="#">
+										<span class="preA">https://ts-preview.ktrmr.com/secv.aspx</span>?i.project=<span class="SASCODE">XXXXX</span>&s=<span class="sVALUE">XXX00</span>&id=1&chk=na&pid=auto&i.test=1&debug=<span class="DebugCode">5</span><span
+											class="LanguageCode"></span><span class="COP"></span>
+									</a>
+								</span>
+							</div>
+							<div class="button_box">
+								<button title="Preview Server Address Copy Button" id="PreviewBut" type="button" name="button">Copy</button>
+							</div>
+						</div>
+
+
+						<div class="cell_box">
+							<div class="link_box">
+								<h3>Live 서버 테스트용:</h3>
+								<span id="LiveTestAddr">
+									<a onclick="set_link_from_get(this.innerText)" href="#">
+										<span class="LiveTestA">https://ts.ktrmr.com/secv.aspx</span>?i.project=<span class="SASCODE">XXXXX</span>&s=<span class="sVALUE">XXX00</span>&id=1&chk=na&rs=<span class="rs">1</span>&pid=<font style="color:red">{패널아이디}</font>&i.test=1&debug=<span class="DebugCode">5</span><span
+										class="LanguageCode"></span><span class="COP"></span>
+									</a>
+								</span>
+
+							</div>
+							<div class="button_box">
+								<button title="Live Test Server Address Copy Button" id="LiveTestBut" type="button" name="button">Copy</button>
+							</div>
+						</div>
+
+
+						<div class="cell_box">
+							<div class="link_box">
+								<h3>Live 서버 실사용:</h3>
+								<span id="LiveAddr">
+									<a onclick="set_link_from_get(this.innerText)" href="#">
+										<span class="LiveA">http://ts.ktrmr.com/secv.aspx</span>?i.project=<span class="SASCODE">XXXXX</span>&s=<span class="sVALUE">XXX00</span>&id=1&chk=na&rs=<span class="rs">1</span>&pid=<font style="color:red">{패널아이디}</font><span
+											class="LanguageCode"></span><span class="COP"></span>
+									</a>
+								</span>
+
+							</div>
+							<div class="button_box">
+								<button title="Live Server Address Copy Button" id="LiveBut" type="button" name="button">Copy</button>
+							</div>
+						</div>
+					</div>
+					<div class="group_box group_none">
+						<h2 class="group_heading">Compile</h2>
+						<div class="cell_box">
+							<div class="link_box">
+								<h3>Ouput Location:</h3>
+								<span id="OutputAddr">\\KONAPMRI033\mrint\src\<span class="SASCODE">XXXXX</span></span>
+							</div>
+							<div class="button_box">
+								<button title="Output Location Copy Button" id="OutputBut" type="button" name="button">Copy</button>
+							</div>
+						</div>
+						<div class="cell_box">
+							<div class="link_box">
+								<h3>Auto-Activation command: (Enter this in the Windows Run... dialog box)</h3>
+
+								<span id="ActivAddr">\\konapmri033\mrint\AutoActivate.bat <span class="SASCODE">XXXXX</span></span>
+							</div>
+							<div class="button_box">
+								<button title="Activation Command Copy Button" id="ActivBut" type="button" name="button">Copy</button>
+							</div>
+						</div>
+						<div class="cell_box">
+							<div class="link_box">
+								<h3>ACE checker command:(Enter this in the Windows Run... dialog box)</h3>
+								<span id="AceAddr">\\konapmri033\mrint\Ace\Ace64.bat \\konapmri033\mrint\src\<span class="SASCODE">XXXXX</span></span>
+							</div>
+							<div class="button_box">
+								<button title="Ace Checker Command Copy Button" id="AceBut" type="button" name="button">Copy</button>
+							</div>
+						</div>
+					</div>
+					<table id="myTable" class="type03" border="1">
+						<tr>
+							<td colspan=2>참고</td>
+						</tr>
+						<tr>
+							<td>project</td>
+							<td>Project id mdd filename(ex: AD42GZ)</td>
+						</tr>
+						<tr>
+							<td>s</td>
+							<td>샘플 provider(GEN24,GMI29...)</td>
+						</tr>
+						<tr>
+							<td>pid</td>
+							<td>패널id, 임의부여(usally: auto)</td>
+						</tr>
+						<tr>
+							<td>rs</td>
+							<td>재시작 가능여부(1: 가능)</td>
+						</tr>
+						<tr>
+							<td>i.test</td>
+							<td>링크에 “i.test=1” 안붙이면 Real respondent</td>
+						</tr>
+						<tr>
+							<td>debug=5</td>
+							<td>디버그모드</td>
+						</tr>
+						<tr>
+							<td>i.timeout=0</td>
+							<td>재접속 제한시간을 없애줌</td>
+						</tr>
+						<tr>
+							<td>aar=1</td>
+							<td>if you pass value “aar = 1”<br />then you don’t need to wait for 10 minutes</td>
+						</tr>
+						<tr>
+							<td>http protocall</td>
+							<td>surbeys.aspx : http (usally used)<br />secs.aspx : https</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="cell cell1">
+
+
+				<div id="main">
+					<div class="group_box group_box2 group_none">
+						<h2 class="group_heading">DIMENSION URL <span class="ClusterType">Cluster V</span></h2>
+						<div class="cell_box">
+							<h3>Dimension Net - Scripting:</h3>
+							<a href="http://scripting601-nap1.grpitsrv.com/" target="_blank">http://scripting601-nap1.grpitsrv.com/</a>
+
+							<h3>Dimension Net - Preview:</h3>
+							<a id="PreviewURL" href="https://previewv.ktrmr.com" target="_blank">https://previewv.ktrmr.com</a>
+
+							<h3>Dimension Net - Live:</h3>
+							<a id="LiveURL" href="https://livev.ktrmr.com" target="_blank">https://livev.ktrmr.com</a>
+
+						</div>
+					</div>
+
+					<div class="group_box group_box2 group_none">
+						<h2 class="group_heading">DEXTAP & FTP  Address <span class="ClusterType">Cluster V</span></h2>
+						<div class="cell_box">
+							<h3>Dextap URL</h3>
+							<a id="DextapURL" href="http://dextap-uk" target="_blank">http://dextap-uk</a>
+						</div>
+						<div class="cell_box">
+							<div class="link_box">
+								<h3>Dextap Data Address</h3>
+								<span id="DextapAddr"><a onclick="set_link_from_get(this.innerText)" href="#"><span class="DextapClusterType">\\kt.group.local\ko_dimensions\CFS2\DataExports\TNS\US\</span><span class="SASCODE">XXXXX</span></a></span>
+							</div>
+							<div class="button_box">
+								<button title="Dextap Server Address Copy Button" id="DextapBut" type="button" name="button">Copy</button>
+							</div>
+						</div>
+						<div class="cell_box">
+							<div class="link_box">
+								<h3>이미지 FTP주소</h3>
+								<span id="ImageFTPAddr">ftp://125.141.196.110:22/<span class="JOBNUM"></span></span>
+
+							</div>
+							<div class="button_box">
+								<button title="Image FTP Server Address Copy Button" id="ImageFTPBut" type="button" name="button">Copy</button>
+							</div>
+						</div>
+						<div class="cell_box">
+							<div class="link_box">
+								<h3>동영상 FTP주소</h3>
+								<span id="VideoFTPAddr">ftp://media.tns-global.com/multimedia/KO/<span class="JOBNUM"></span></span>
+
+							</div>
+							<div class="button_box">
+								<button title="Video FTP Server Address Copy Button" id="VideoFTPBut" type="button" name="button">Copy</button>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="group_box group_box2">
+						<h2>WebSite Address</h2>
+						<h3>Citrix box:</h3>
+						<a href="http://citrixwebus.grpitsrv.com/Citrix/XenApp/auth/login.aspx" target="_blank">http://citrixwebus.grpitsrv.com/Citrix/XenApp/auth/login.aspx</a>
+						<p>
+							Choose: NAP ? DC 6_0_1
+							Our server name is KONAPMRI033
+						</p>
+						<h3>Job Builder:</h3>
+						<a href="http://scripting601-nap1.grpitsrv.com/JobBuilder/" target="_blank">http://scripting601-nap1.grpitsrv.com/JobBuilder/</a>
+
+						<!-- <h3>Dimension Net - Scripting:</h3>
+						<a href="http://scripting601-nap1.grpitsrv.com/" target="_blank">http://scripting601-nap1.grpitsrv.com/</a>
+
+						<h3>Dimension Net - Preview:</h3>
+						<a href="https://previews.ktrmr.com" target="_blank">https://previews.ktrmr.com</a>
+
+						<h3>Dimension Net - Live:</h3>
+						<a href="https://lives.ktrmr.com" target="_blank">https://lives.ktrmr.com</a> -->
+
+						<h3>Survey Links:</h3>
+						<a href="http://scripting601-nap1.grpitsrv.com/mrIWeb/images/default.asp" target="_blank">http://scripting601-nap1.grpitsrv.com/mrIWeb/images/default.asp</a>
+
+						<h3>Registrar:</h3>
+						<a href="https://reg1.ktrmr.com/Registrar/Login/Default.aspx?" target="_blank">https://reg1.ktrmr.com/Registrar/Login/Default.aspx?</a>
+
+						<h3>Dextap:</h3>
+						<a href="http://dextap-us/Account/LogOn?ReturnUrl=/" target="_blank">http://dextap-us/Account/LogOn?ReturnUrl=/</a>
+
+						<h3>KGO Support Portal:</h3>
+						<a href="https://kgo-support.freshdesk.com/support/home" target="_blank">https://kgo-support.freshdesk.com/support/home</a>
+
+						<h3>KONNECT:</h3>
+						<a href="https://konnect.kantaroperations.com" target="_blank">https://konnect.kantaroperations.com</a>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
