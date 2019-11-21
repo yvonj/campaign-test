@@ -55,7 +55,7 @@
       <transition name="list">
         <div class="debug_wrap" v-show="storageStatus">
           <div v-for="btn in ftpBtnList" :key="btn.id" class="debug_box">
-            <p v-clipboard="btn.value + activeWeek.handle">{{btn.name}}</p>
+            <p v-clipboard="btn.value">{{btn.name}}</p>
           </div>
           <div v-for="btn in debugBtnList" :key="btn.id" class="debug_box">
             <p v-clipboard="btn.value + activeWeek.handle">{{btn.name}}</p>
