@@ -38,11 +38,6 @@ const state = {
     ],
     weekList : [
         {
-            name: "Week38",
-            addr: "Week2",
-            handle: "ADMSMPW25V3"
-        },
-        {
             name: "Week39",
             addr: "Week1",
             handle: "ADMSMPW27V3"
@@ -50,18 +45,29 @@ const state = {
         {
             name: "Week40",
             addr: "Week2",
-            handle: "ADMSMPW25V3"
+            handle: "ADMSMPW40V3"
         },
         {
             name: "Week41",
             addr: "Week1",
-            handle: "ADMSMPW27V3"
+            handle: "ADMSMPW41V3"
         },
         {
             name: "Week42",
             addr: "Week2",
-            handle: "ADMSMPW25V3"
+            handle: "ADMSMPW40V3"
         },
+        {
+            name: "Week43",
+            addr: "Week1",
+            handle: "ADMSMPW41V3"
+        },
+        {
+            name: "Week44",
+            addr: "Week2",
+            handle: "ADMSMPW40V3"
+        },
+
     ],
     startAQList: [
         {
