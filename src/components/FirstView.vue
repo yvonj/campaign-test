@@ -52,10 +52,10 @@ export default {
         background-color:#000;
         content: '';
         /* opacity: 0.7; */
-        background-image: url("../assets/img/black_earth.png");
+        background-image: url("../assets/img/christmas-tree.png");
         background-repeat: no-repeat;
-        background-position: 750px center;
-        background-size: 1000px;
+        background-position: 900px center;
+        background-size: 670px;
     }
     .week_select_box {
         position: fixed;
@@ -132,7 +132,7 @@ export default {
     @media only screen and (max-width: 1000px) {
         .week_select_wrap::before{
            background-position: center;
-           background-size: 800px;
+           /* background-size: 800px; */
         }
     }
 </style>
