@@ -2,7 +2,7 @@
   <div class="week_select_wrap">
       <div class="week_select_box">
           <div class="header_wrap">
-            <p class="header_text">Samsung Campaign<br>Test Page</p>
+            <p class="header_text">Samsung Campaign<br>Test Page<br><span>2020</span></p>
             <!-- <p class="header_text"></p> -->
             <p class="week_select_header">Select Week</p>
           </div>
@@ -68,7 +68,7 @@ export default {
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         border-radius: 10px;
-        background: #eee;
+        background: #fff;
         opacity: 0.9;
         /* background: url("../assets/img/woodPatern.png"); */
     }
@@ -76,6 +76,10 @@ export default {
         margin-bottom: 40px;
         font-size: 1.5rem;
         color: #000148;
+    }
+    .header_text>span{
+        font-size: 1.7rem;
+        color: #e6cc00;
     }
     .header_wrap {
         padding: 30px;
