@@ -25,6 +25,11 @@ const state = {
             img: "de_flag.png"
         },
         {
+            id: "Italy",
+            handle: "ITA",
+            img: "it_flag.png"
+        },
+        {
             id: "Spain",
             handle: "ESU",
             img: "es_flag.png"
@@ -38,32 +43,32 @@ const state = {
     ],
     weekList : [
         {
-            name: "Week39",
+            name: "Week1",
             addr: "Week1",
-            handle: "ADMSMPW27V3"
+            handle: "AD2XDC"
         },
         {
-            name: "Week40",
+            name: "Week2",
             addr: "Week2",
             handle: "ADMSMPW40V3"
         },
         {
-            name: "Week41",
+            name: "Week3",
             addr: "Week1",
             handle: "ADMSMPW41V3"
         },
         {
-            name: "Week42",
+            name: "Week4",
             addr: "Week2",
             handle: "ADMSMPW40V3"
         },
         {
-            name: "Week43",
+            name: "Week5",
             addr: "Week1",
             handle: "ADMSMPW41V3"
         },
         {
-            name: "Week44",
+            name: "Week6",
             addr: "Week2",
             handle: "ADMSMPW40V3"
         },
@@ -148,12 +153,12 @@ const state = {
     fTPBtns: [
         {
             id: 1,
-            value: 'ftp://125.141.196.110:22/243412976',
+            value: 'ftp://125.141.196.111/243412976',
             name: 'Image FTP',
         },
         {
             id: 2,
-            value: 'ftp://media.tns-global.com/multimedia/KO/243412976',
+            value: '\\\\amznfsxsvtdpvph.kt.group.local\\share\\CDN_Media\\Multimedia\\KO\\243412976',
             name: 'Video FTP',
         }
     ],
@@ -172,7 +177,7 @@ const state = {
     extractorBtn: [
         {
             id: 1,
-            value: '\\\\kt.group.local\\ko_dimensions\\CFS2\\DPAT_Output_NA\\',
+            value: '\\\\EC2AMAZ-16ITHK3\\DPAT_Output_NA\\',
             name: 'Extrator File',
         },
     ],
