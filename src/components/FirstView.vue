@@ -52,7 +52,7 @@ export default {
         background-color:#000;
         content: '';
         /* opacity: 0.7; */
-        background-image: url("../assets/img/christmas-tree.png");
+        background-image: url("../assets/img/black_earth.png");
         background-repeat: no-repeat;
         background-position: 900px center;
         background-size: 670px;
