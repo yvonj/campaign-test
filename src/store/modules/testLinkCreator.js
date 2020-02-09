@@ -50,7 +50,7 @@ const state = {
         {
             name: "Week2",
             addr: "Week2",
-            handle: "ADMSMPW40V3"
+            handle: "SSC2020W2"
         },
         {
             name: "Week3",
