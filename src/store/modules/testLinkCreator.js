@@ -55,22 +55,22 @@ const state = {
         {
             name: "Week3",
             addr: "Week1",
-            handle: "ADMSMPW41V3"
+            handle: "SSC2020W1"
         },
         {
             name: "Week4",
             addr: "Week2",
-            handle: "ADMSMPW40V3"
+            handle: "SSC2020W2"
         },
         {
             name: "Week5",
             addr: "Week1",
-            handle: "ADMSMPW41V3"
+            handle: "SSC2020W1"
         },
         {
             name: "Week6",
             addr: "Week2",
-            handle: "ADMSMPW40V3"
+            handle: "SSC2020W2"
         },
 
     ],
