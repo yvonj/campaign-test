@@ -118,6 +118,10 @@ const state = {
             name: "Television"
         },
         {
+            id: "81",
+            name: "Event"
+        },
+        {
             id: "72",
             name: "Radio"
         },
