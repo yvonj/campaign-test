@@ -43,32 +43,32 @@ const state = {
     ],
     weekList : [
         {
-            name: "Week5",
-            addr: "Week1",
-            handle: "SSC2020W1"
-        },
-        {
-            name: "Week6",
-            addr: "Week2",
-            handle: "SSC2020W2"
-        },
-        {
-            name: "Week7",
-            addr: "Week1",
-            handle: "SSC2020W1"
-        },
-        {
-            name: "Week8",
-            addr: "Week2",
-            handle: "SSC2020W2"
-        },
-        {
             name: "Week9",
             addr: "Week1",
             handle: "SSC2020W1"
         },
         {
             name: "Week10",
+            addr: "Week2",
+            handle: "SSC2020W2"
+        },
+        {
+            name: "Week11",
+            addr: "Week1",
+            handle: "SSC2020W1"
+        },
+        {
+            name: "Week12",
+            addr: "Week2",
+            handle: "SSC2020W2"
+        },
+        {
+            name: "Week11",
+            addr: "Week1",
+            handle: "SSC2020W1"
+        },
+        {
+            name: "Week12",
             addr: "Week2",
             handle: "SSC2020W2"
         },
@@ -112,6 +112,10 @@ const state = {
         {
             id: "11",
             name: "CrossMedia Beginning"
+        },
+        {
+            id: "82",
+            name: "Battery(2020.04.06)"
         },
         {
             id: "71",
