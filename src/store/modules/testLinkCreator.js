@@ -63,12 +63,12 @@ const state = {
             handle: "SSC2020W2"
         },
         {
-            name: "Week11",
+            name: "Week13",
             addr: "Week1",
             handle: "SSC2020W1"
         },
         {
-            name: "Week12",
+            name: "Week14",
             addr: "Week2",
             handle: "SSC2020W2"
         },
