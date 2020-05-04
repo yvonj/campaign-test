@@ -43,32 +43,42 @@ const state = {
     ],
     weekList : [
         {
-            name: "Week9",
-            addr: "Week1",
-            handle: "SSC2020W1"
-        },
-        {
-            name: "Week10",
-            addr: "Week2",
-            handle: "SSC2020W2"
-        },
-        {
-            name: "Week11",
-            addr: "Week1",
-            handle: "SSC2020W1"
-        },
-        {
-            name: "Week12",
-            addr: "Week2",
-            handle: "SSC2020W2"
-        },
-        {
             name: "Week13",
             addr: "Week1",
             handle: "SSC2020W1"
         },
         {
             name: "Week14",
+            addr: "Week2",
+            handle: "SSC2020W2"
+        },
+        {
+            name: "Week15",
+            addr: "Week1",
+            handle: "SSC2020W1"
+        },
+        {
+            name: "Week16",
+            addr: "Week2",
+            handle: "SSC2020W2"
+        },
+        {
+            name: "Week17",
+            addr: "Week1",
+            handle: "SSC2020W1"
+        },
+        {
+            name: "Week18",
+            addr: "Week2",
+            handle: "SSC2020W2"
+        },
+        {
+            name: "Week19",
+            addr: "Week1",
+            handle: "SSC2020W1"
+        },
+        {
+            name: "Week20",
             addr: "Week2",
             handle: "SSC2020W2"
         },
@@ -109,6 +119,10 @@ const state = {
         },
     ],
     crossMediaList: [
+        {
+            id: "83",
+            name: "Covid Part"
+        },
         {
             id: "11",
             name: "CrossMedia Beginning"
