@@ -117,6 +117,10 @@ const state = {
             id: "33",
             name: "EQ Part"
         },
+        {
+            id: "23",
+            name: "HQ/Functionality Part"
+        },
     ],
     crossMediaList: [
         {
