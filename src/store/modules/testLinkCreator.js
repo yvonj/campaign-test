@@ -119,7 +119,11 @@ const state = {
         },
         {
             id: "23",
-            name: "HQ/Functionality Part"
+            name: "HQ Part"
+        },
+        {
+            id: "84",
+            name: "Functionality Part"
         },
     ],
     crossMediaList: [
