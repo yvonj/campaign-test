@@ -43,45 +43,106 @@ const state = {
     ],
     weekList : [
         {
-            name: "Week23",
+            name: "Week31",
             addr: "Week1",
             handle: "SSC2020W1"
         },
         {
-            name: "Week24",
+            name: "Week32",
             addr: "Week2",
             handle: "SSC2020W2"
         },
         {
-            name: "Week25",
+            name: "Week33",
             addr: "Week1",
             handle: "SSC2020W1"
         },
         {
-            name: "Week26",
+            name: "Week34",
             addr: "Week2",
             handle: "SSC2020W2"
         },
         {
-            name: "Week27",
+            name: "Week35",
             addr: "Week1",
             handle: "SSC2020W1"
         },
         {
-            name: "Week28",
+            name: "Week36",
             addr: "Week2",
             handle: "SSC2020W2"
         },
         {
-            name: "Week29",
+            name: "Week37",
             addr: "Week1",
             handle: "SSC2020W1"
         },
         {
-            name: "Week30",
+            name: "Week38",
             addr: "Week2",
             handle: "SSC2020W2"
         },
+        {
+            name: "Week39",
+            addr: "Week1",
+            handle: "SSC2020W1"
+        },
+        {
+            name: "Week40",
+            addr: "Week2",
+            handle: "SSC2020W2"
+        },
+        {
+            name: "Week41",
+            addr: "Week1",
+            handle: "SSC2020W1"
+        },
+        {
+            name: "Week42",
+            addr: "Week2",
+            handle: "SSC2020W2"
+        },
+        {
+            name: "Week43",
+            addr: "Week1",
+            handle: "SSC2020W1"
+        },
+        {
+            name: "Week44",
+            addr: "Week2",
+            handle: "SSC2020W2"
+        },
+        {
+            name: "Week45",
+            addr: "Week1",
+            handle: "SSC2020W1"
+        },
+        {
+            name: "Week46",
+            addr: "Week2",
+            handle: "SSC2020W2"
+        },
+        {
+            name: "Week47",
+            addr: "Week1",
+            handle: "SSC2020W1"
+        },
+        {
+            name: "Week48",
+            addr: "Week2",
+            handle: "SSC2020W2"
+        },
+        {
+            name: "Week49",
+            addr: "Week1",
+            handle: "SSC2020W1"
+        },
+        {
+            name: "Week50",
+            addr: "Week2",
+            handle: "SSC2020W2"
+        },
+       
 
     ],
     startAQList: [
