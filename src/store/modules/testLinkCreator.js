@@ -225,6 +225,10 @@ const state = {
             name: "Cinema"
         },
         {
+            id: "85",
+            name: "PurePlay"
+        },
+        {
             id: "76",
             name: "Outdoor"
         },
