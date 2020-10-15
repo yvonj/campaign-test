@@ -43,41 +43,6 @@ const state = {
     ],
     weekList : [
         {
-            name: "Week31",
-            addr: "Week1",
-            handle: "SSC2020W1"
-        },
-        {
-            name: "Week32",
-            addr: "Week2",
-            handle: "SSC2020W2"
-        },
-        {
-            name: "Week33",
-            addr: "Week1",
-            handle: "SSC2020W1"
-        },
-        {
-            name: "Week34",
-            addr: "Week2",
-            handle: "SSC2020W2"
-        },
-        {
-            name: "Week35",
-            addr: "Week1",
-            handle: "SSC2020W1"
-        },
-        {
-            name: "Week36",
-            addr: "Week2",
-            handle: "SSC2020W2"
-        },
-        {
-            name: "Week37",
-            addr: "Week1",
-            handle: "SSC2020W1"
-        },
-        {
             name: "Week38",
             addr: "Week2",
             handle: "SSC2020W2"
